@@ -1,0 +1,1624 @@
+/* ==========================================================
+   KABANKALAN CATHOLIC COLLEGE, INC.
+   COMPLETE MAIN STYLESHEET
+   Theme: Luxury Emerald Green + Champagne Gold
+   Layout: Existing Mentor-style template
+   Replace the entire old main.css with this file.
+========================================================== */
+
+/* =========================
+   1. GLOBAL COLORS
+========================= */
+:root {
+  --background-color: #092B23;
+  --default-color: #DCE8DF;
+  --heading-color: #F5F8F5;
+  --accent-color: #D6B875;
+  --surface-color: #164B3C;
+  --contrast-color: #FFFFFF;
+
+  --nav-color: #F5F8F5;
+  --nav-hover-color: #D6B875;
+  --nav-mobile-background-color: #092B23;
+  --nav-dropdown-background-color: #092B23;
+  --nav-dropdown-color: #F5F8F5;
+  --nav-dropdown-hover-color: #D6B875;
+
+  --kcc-deep: #092B23;
+  --kcc-dark: #0B3026;
+  --kcc-green: #164B3C;
+  --kcc-green-light: #1B5946;
+  --kcc-card: #205B48;
+  --kcc-gold: #D6B875;
+  --kcc-gold-light: #E8D5A5;
+  --kcc-white: #F5F8F5;
+  --kcc-text: #DCE8DF;
+  --kcc-muted: #B8C9BE;
+  --kcc-border: rgba(214, 184, 117, 0.28);
+
+  scroll-behavior: smooth;
+}
+
+/* =========================
+   2. GENERAL STYLING
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--kcc-text);
+  background: var(--kcc-deep);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+  color: var(--kcc-white);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+p {
+  color: var(--kcc-text);
+}
+
+a {
+  color: var(--kcc-gold);
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+a:hover {
+  color: var(--kcc-white);
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.section {
+  padding: 90px 0;
+  overflow: hidden;
+  background: var(--kcc-green);
+  color: var(--kcc-text);
+}
+
+/* Alternating section colors */
+section:nth-of-type(even),
+.section:nth-of-type(even) {
+  background-color: var(--kcc-dark);
+}
+
+section:nth-of-type(odd),
+.section:nth-of-type(odd) {
+  background-color: var(--kcc-green);
+}
+
+.light-background,
+.section-bg {
+  background: var(--kcc-green-light) !important;
+  color: var(--kcc-text);
+}
+
+/* =========================
+   3. HEADER AND LOGO
+========================= */
+.header {
+  background: rgba(9, 43, 35, 0.98);
+  padding: 12px 0;
+  border-bottom: 2px solid var(--kcc-gold);
+  box-shadow: 0 5px 24px rgba(0, 0, 0, 0.22);
+  z-index: 997;
+  transition: all 0.35s ease;
+}
+
+.header .container {
+  min-height: 62px;
+}
+
+.header .logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header .logo img {
+  display: block;
+  max-height: 53px;
+  width: auto;
+  object-fit: contain;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  mix-blend-mode: normal !important;
+}
+
+.header .logo h1,
+.header .logo .sitename {
+  margin: 0;
+  color: var(--kcc-white);
+  font-family: "Raleway", sans-serif;
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   4. NAVIGATION
+========================= */
+.navmenu {
+  padding: 0;
+}
+
+.navmenu ul {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navmenu li {
+  position: relative;
+}
+
+.navmenu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 13px;
+  color: var(--kcc-white);
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.navmenu a:hover,
+.navmenu a.active,
+.navmenu li:hover > a {
+  color: var(--kcc-gold);
+}
+
+.navmenu a.active {
+  position: relative;
+}
+
+.navmenu a.active::after {
+  content: "";
+  position: absolute;
+  left: 13px;
+  bottom: 3px;
+  width: 24px;
+  height: 2px;
+  background: var(--kcc-gold);
+}
+
+.navmenu .dropdown ul {
+  display: block;
+  position: absolute;
+  top: 135%;
+  left: 0;
+  min-width: 220px;
+  padding: 10px 0;
+  background: var(--kcc-deep);
+  border: 1px solid var(--kcc-border);
+  border-top: 3px solid var(--kcc-gold);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  z-index: 99;
+}
+
+.navmenu .dropdown:hover > ul {
+  top: 100%;
+  opacity: 1;
+  visibility: visible;
+}
+
+.navmenu .dropdown ul a {
+  padding: 9px 18px;
+  color: var(--kcc-white);
+  font-size: 12px;
+}
+
+.navmenu .dropdown ul a:hover {
+  color: var(--kcc-gold);
+  background: var(--kcc-card);
+}
+
+.navmenu .dropdown ul .dropdown ul {
+  top: 0;
+  left: 100%;
+}
+
+.mobile-nav-toggle {
+  display: none;
+  color: var(--kcc-gold);
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* Header call-to-action button */
+.btn-getstarted {
+  display: inline-block;
+  padding: 11px 22px;
+  color: var(--kcc-deep);
+  background: var(--kcc-gold);
+  border: 1px solid var(--kcc-gold);
+  border-radius: 4px;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  transition: all 0.3s ease;
+}
+
+.btn-getstarted:hover {
+  color: var(--kcc-deep);
+  background: var(--kcc-white);
+  border-color: var(--kcc-white);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   5. HERO SECTION
+========================= */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 690px;
+  overflow: hidden;
+  background: var(--kcc-deep);
+}
+
+.hero img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  animation: kccHeroZoom 18s ease-in-out infinite alternate;
+}
+
+@keyframes kccHeroZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.07); }
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    90deg,
+    rgba(9, 43, 35, 0.94) 0%,
+    rgba(11, 48, 38, 0.78) 52%,
+    rgba(22, 75, 60, 0.30) 100%
+  );
+}
+
+.hero .container {
+  position: relative;
+  z-index: 3;
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+
+.hero h1,
+.hero h2 {
+  max-width: 850px;
+  color: #FFFFFF;
+  font-size: clamp(34px, 5vw, 60px);
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: -0.8px;
+  margin-bottom: 22px;
+}
+
+.hero p {
+  color: var(--kcc-white);
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+
+.hero p:last-of-type {
+  color: var(--kcc-gold-light);
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  font-style: italic;
+  letter-spacing: 0.7px;
+}
+
+.hero .btn-get-started,
+.hero .btn-getstarted {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 13px 29px;
+  color: var(--kcc-deep);
+  background: var(--kcc-gold);
+  border: 1px solid var(--kcc-gold);
+  border-radius: 4px;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.hero .btn-get-started:hover,
+.hero .btn-getstarted:hover {
+  color: var(--kcc-deep);
+  background: var(--kcc-white);
+  border-color: var(--kcc-white);
+  transform: translateY(-3px);
+}
+
+/* =========================
+   6. ABOUT SECTION AND KCC LOGO
+========================= */
+.about {
+  padding: 95px 0;
+  background: var(--kcc-green) !important;
+}
+
+.about .row {
+  align-items: center;
+}
+
+.about h3 {
+  color: var(--kcc-white);
+  font-size: 33px;
+  font-weight: 800;
+  line-height: 1.35;
+  margin-bottom: 20px;
+}
+
+.about .fst-italic {
+  color: var(--kcc-gold-light);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.about p {
+  color: var(--kcc-text);
+  line-height: 1.9;
+}
+
+.about ul {
+  list-style: none;
+  padding: 0;
+  margin: 23px 0;
+}
+
+.about ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 7px 0;
+  color: var(--kcc-text);
+}
+
+.about ul i {
+  flex-shrink: 0;
+  color: var(--kcc-gold);
+  font-size: 20px;
+}
+
+.about img,
+.about .about-img,
+.about .about-image,
+#about img {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  mix-blend-mode: normal !important;
+  object-fit: contain;
+}
+
+.about img {
+  width: 100%;
+  max-height: 440px;
+  padding: 0;
+  border-radius: 0;
+}
+
+.about .read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--kcc-gold);
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  border-bottom: 1px solid var(--kcc-gold);
+  padding-bottom: 6px;
+}
+
+.about .read-more:hover {
+  color: var(--kcc-white);
+  gap: 14px;
+}
+
+/* =========================
+   7. SECTION TITLES
+========================= */
+.section-title {
+  text-align: center;
+  padding-bottom: 42px;
+}
+
+.section-title h2 {
+  display: inline-block;
+  color: var(--kcc-gold);
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.section-title p {
+  color: var(--kcc-white);
+  font-family: "Raleway", sans-serif;
+  font-size: 35px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* =========================
+   8. COUNTS / STATISTICS
+========================= */
+.counts {
+  padding: 68px 0;
+  background: var(--kcc-deep) !important;
+  border-top: 1px solid var(--kcc-border);
+  border-bottom: 1px solid var(--kcc-border);
+}
+
+.stats-item {
+  padding: 15px;
+  text-align: center;
+}
+
+.stats-item span {
+  display: block;
+  color: var(--kcc-white);
+  font-family: "Raleway", sans-serif;
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 9px;
+}
+
+.stats-item p {
+  color: var(--kcc-gold);
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* =========================
+   9. WHY CHOOSE KCC
+========================= */
+.why-us {
+  padding: 95px 0;
+  background: var(--kcc-dark) !important;
+}
+
+.why-box {
+  position: relative;
+  height: 100%;
+  padding: 38px 30px;
+  overflow: hidden;
+  color: var(--kcc-white);
+  background: var(--kcc-deep);
+  border: 1px solid var(--kcc-border);
+  border-bottom: 4px solid var(--kcc-gold);
+  border-radius: 8px;
+}
+
+.why-box::after {
+  content: "";
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  right: -65px;
+  bottom: -70px;
+  border: 1px solid rgba(214, 184, 117, 0.35);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.why-box h3 {
+  color: var(--kcc-white);
+  font-size: 29px;
+  margin-bottom: 18px;
+}
+
+.why-box p {
+  color: var(--kcc-text);
+  line-height: 1.9;
+}
+
+.why-box .more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 21px;
+  margin-top: 13px;
+  color: var(--kcc-deep);
+  background: var(--kcc-gold);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.why-box .more-btn:hover {
+  color: var(--kcc-deep);
+  background: var(--kcc-white);
+}
+
+.why-us .icon-box {
+  height: 100%;
+  padding: 29px 18px;
+  text-align: center;
+  background: var(--kcc-card);
+  border: 1px solid var(--kcc-border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.why-us .icon-box:hover {
+  transform: translateY(-6px);
+  border-color: var(--kcc-gold);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.why-us .icon-box i {
+  color: var(--kcc-gold);
+  font-size: 37px;
+  margin-bottom: 16px;
+}
+
+.why-us .icon-box h4 {
+  color: var(--kcc-white);
+  font-size: 17px;
+  margin-bottom: 11px;
+}
+
+.why-us .icon-box p {
+  color: var(--kcc-text);
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* =========================
+   10. FEATURES SECTION
+========================= */
+.features {
+  padding: 85px 0;
+  background: var(--kcc-green) !important;
+}
+
+.features-item {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 21px 18px;
+  background: var(--kcc-card);
+  border: 1px solid var(--kcc-border);
+  border-radius: 7px;
+  transition: all 0.3s ease;
+}
+
+.features-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--kcc-gold);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
+}
+
+.features-item i {
+  flex-shrink: 0;
+  color: var(--kcc-gold) !important;
+  font-size: 28px;
+  margin-right: 15px;
+}
+
+.features-item h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.features-item h3 a {
+  color: var(--kcc-white);
+}
+
+.features-item h3 a:hover {
+  color: var(--kcc-gold);
+}
+
+/* =========================
+   11. COURSES / ACADEMIC PROGRAMS
+========================= */
+.courses {
+  padding: 95px 0;
+  background: var(--kcc-dark) !important;
+}
+
+.course-item {
+  height: 100%;
+  overflow: hidden;
+  background: var(--kcc-card);
+  border: 1px solid var(--kcc-border);
+  border-radius: 8px;
+  transition: all 0.35s ease;
+}
+
+.course-item:hover {
+  transform: translateY(-7px);
+  border-color: var(--kcc-gold);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.20);
+}
+
+.course-item > img {
+  display: block;
+  width: 100%;
+  height: 235px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.course-item:hover > img {
+  transform: scale(1.04);
+}
+
+.course-content {
+  padding: 24px;
+}
+
+.course-content .category {
+  display: inline-block;
+  padding: 6px 11px;
+  color: var(--kcc-gold-light);
+  background: var(--kcc-deep);
+  border-left: 3px solid var(--kcc-gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  margin: 0;
+}
+
+.course-content .price {
+  color: var(--kcc-gold);
+  font-size: 15px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.course-content h3 {
+  font-size: 20px;
+  margin: 16px 0 11px;
+}
+
+.course-content h3 a {
+  color: var(--kcc-white);
+}
+
+.course-content h3 a:hover {
+  color: var(--kcc-gold);
+}
+
+.course-content .description,
+.course-content p {
+  color: var(--kcc-text);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.course-content .trainer {
+  padding-top: 16px;
+  margin-top: 19px;
+  border-top: 1px solid var(--kcc-border);
+}
+
+.trainer-link {
+  color: var(--kcc-gold-light);
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.trainer-link:hover {
+  color: var(--kcc-white);
+}
+
+/* =========================
+   12. COMMUNITY / TRAINERS
+========================= */
+.trainers-index,
+.trainers {
+  padding: 95px 0;
+  background: var(--kcc-green) !important;
+}
+
+.trainers-index .member,
+.trainers .member {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--kcc-card);
+  border: 1px solid var(--kcc-border);
+  border-radius: 8px;
+  transition: all 0.35s ease;
+}
+
+.trainers-index .member:hover,
+.trainers .member:hover {
+  transform: translateY(-7px);
+  border-color: var(--kcc-gold);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+}
+
+.trainers-index .member img,
+.trainers .member img {
+  display: block;
+  width: 100%;
+  height: 255px;
+  object-fit: cover;
+}
+
+.trainers-index .member-content,
+.trainers .member-content {
+  padding: 25px 22px;
+  text-align: center;
+}
+
+.trainers-index .member h4,
+.trainers .member h4 {
+  color: var(--kcc-white);
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.trainers-index .member span,
+.trainers .member span {
+  display: block;
+  color: var(--kcc-gold);
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
+}
+
+.trainers-index .member p,
+.trainers .member p {
+  color: var(--kcc-text);
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* =========================
+   13. EVENTS
+========================= */
+.events {
+  padding: 95px 0;
+  background: var(--kcc-dark) !important;
+}
+
+.events .event-item {
+  height: 100%;
+  overflow: hidden;
+  background: var(--kcc-card);
+  border: 1px solid var(--kcc-border);
+  border-radius: 8px;
+}
+
+.events .event-item img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.events .event-item .event-content {
+  padding: 23px;
+}
+
+.events .event-item h3,
+.events .event-item h3 a {
+  color: var(--kcc-white);
+}
+
+.events .event-item p {
+  color: var(--kcc-text);
+}
+
+/* =========================
+   14. CAMPUS LIFE
+========================= */
+#campus-life {
+  padding: 95px 0;
+  background: var(--kcc-green) !important;
+}
+
+#campus-life .row > div {
+  padding: 29px;
+  background: var(--kcc-card);
+  border-left: 4px solid var(--kcc-gold);
+  border-radius: 7px;
+  transition: all 0.3s ease;
+}
+
+#campus-life .row > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+}
+
+#campus-life h3 {
+  color: var(--kcc-white);
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+#campus-life p {
+  color: var(--kcc-text);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+#campus-life .read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--kcc-gold);
+  border-bottom: 1px solid var(--kcc-gold);
+  padding-bottom: 5px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+#campus-life .read-more:hover {
+  color: var(--kcc-white);
+  gap: 13px;
+}
+
+/* =========================
+   15. OUR HISTORY
+========================= */
+#history,
+#history.history-section {
+  padding: 80px 0;
+  color: var(--kcc-white);
+  background: linear-gradient(135deg, #092B23, #164B3C, #205B48) !important;
+}
+
+#history .section-label {
+  display: inline-block;
+  color: var(--kcc-gold);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+}
+
+#history h2,
+#history h3 {
+  color: var(--kcc-white);
+  font-size: 35px;
+  font-weight: 800;
+  margin-bottom: 22px;
+}
+
+#history p {
+  color: var(--kcc-text);
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 17px;
+}
+
+#history .read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--kcc-gold);
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+#history .read-more:hover,
+#history .read-more:hover span,
+#history .read-more:hover i {
+  color: var(--kcc-white);
+}
+
+#history .history-image {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border: 2px solid var(--kcc-border);
+  border-radius: 9px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+}
+
+/* =========================
+   16. GENERIC INNER-PAGE CONTENT
+========================= */
+.page-title,
+.page-header {
+  padding: 45px 0;
+  color: var(--kcc-white);
+  background: var(--kcc-deep);
+  border-bottom: 1px solid var(--kcc-border);
+}
+
+.page-title h1,
+.page-header h1 {
+  color: var(--kcc-white);
+  font-size: 34px;
+}
+
+.breadcrumbs {
+  color: var(--kcc-muted);
+}
+
+.breadcrumbs a {
+  color: var(--kcc-gold);
+}
+
+.breadcrumbs a:hover {
+  color: var(--kcc-white);
+}
+
+/* =========================
+   17. FOOTER
+========================= */
+.footer,
+#footer {
+  color: var(--kcc-text);
+  background: #071F19 !important;
+  border-top: 3px solid var(--kcc-gold);
+  font-size: 13px;
+}
+
+.footer .footer-top {
+  padding-top: 68px;
+  padding-bottom: 43px;
+}
+
+.footer .logo .sitename {
+  color: var(--kcc-white);
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.footer .logo img {
+  max-height: 50px;
+  width: auto;
+  object-fit: contain;
+  background: transparent !important;
+  box-shadow: none !important;
+  mix-blend-mode: normal !important;
+}
+
+.footer h4 {
+  color: var(--kcc-gold);
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.footer p {
+  color: var(--kcc-text);
+  line-height: 1.9;
+}
+
+.footer .footer-contact p {
+  margin-bottom: 8px;
+}
+
+.footer .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .footer-links ul li {
+  padding: 6px 0;
+}
+
+.footer .footer-links ul a {
+  color: var(--kcc-text);
+  transition: all 0.3s ease;
+}
+
+.footer .footer-links ul a:hover {
+  color: var(--kcc-gold);
+  padding-left: 5px;
+}
+
+.footer .social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 39px;
+  height: 39px;
+  margin-right: 9px;
+  color: var(--kcc-white);
+  border: 1px solid var(--kcc-border);
+  border-radius: 50%;
+  font-size: 17px;
+  transition: all 0.3s ease;
+}
+
+.footer .social-links a:hover {
+  color: var(--kcc-deep);
+  background: var(--kcc-gold);
+  border-color: var(--kcc-gold);
+}
+
+.footer .read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--kcc-gold);
+  border-bottom: 1px solid var(--kcc-gold);
+  padding-bottom: 5px;
+  font-weight: 700;
+}
+
+.footer .read-more:hover {
+  color: var(--kcc-white);
+}
+
+.footer .copyright {
+  padding: 23px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer .copyright p {
+  color: var(--kcc-white);
+  margin: 0 0 5px;
+}
+
+.footer .copyright .sitename {
+  color: var(--kcc-gold);
+}
+
+.footer .credits {
+  color: var(--kcc-muted);
+  font-size: 12px;
+}
+
+/* =========================
+   18. BUTTONS AND LINKS
+========================= */
+.btn,
+button {
+  transition: all 0.3s ease;
+}
+
+.btn-primary,
+.btn-getstarted,
+.btn-get-started {
+  color: var(--kcc-deep);
+  background: var(--kcc-gold);
+  border-color: var(--kcc-gold);
+}
+
+.btn-primary:hover,
+.btn-getstarted:hover,
+.btn-get-started:hover {
+  color: var(--kcc-deep);
+  background: var(--kcc-white);
+  border-color: var(--kcc-white);
+}
+
+/* =========================
+   19. SCROLL TO TOP
+========================= */
+.scroll-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 996;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--kcc-deep);
+  background: var(--kcc-gold);
+  border-radius: 50%;
+  font-size: 23px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.scroll-top.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top:hover {
+  color: var(--kcc-deep);
+  background: var(--kcc-white);
+}
+
+/* =========================
+   20. PRELOADER
+========================= */
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--kcc-deep);
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 23px);
+  left: calc(50% - 23px);
+  width: 46px;
+  height: 46px;
+  border: 4px solid rgba(245, 248, 245, 0.18);
+  border-top-color: var(--kcc-gold);
+  border-bottom-color: var(--kcc-white);
+  border-radius: 50%;
+  animation: kccLoader 1s linear infinite;
+}
+
+@keyframes kccLoader {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* =========================
+   21. LOGO TRANSPARENCY
+   Keep the white ring inside the KCC seal.
+   Do not use multiply blending.
+========================= */
+.kcc-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent !important;
+}
+
+.kcc-logo,
+.kcc-logo img,
+.kcc-logo-container img,
+img[src*="kcc-logo"],
+img[src*="kcc"] {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  mix-blend-mode: normal !important;
+  object-fit: contain;
+}
+
+/* =========================
+   22. MOBILE NAVIGATION
+========================= */
+@media (max-width: 1199px) {
+  .navmenu ul {
+    display: none;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .mobile-nav-active {
+    overflow: hidden;
+  }
+
+  .mobile-nav-active .navmenu > ul {
+    display: block;
+    position: fixed;
+    inset: 75px 15px 15px 15px;
+    padding: 15px 0;
+    background: var(--kcc-deep);
+    border: 1px solid var(--kcc-gold);
+    border-radius: 7px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.30);
+    overflow-y: auto;
+    z-index: 9998;
+  }
+
+  .mobile-nav-active .navmenu a {
+    display: flex;
+    padding: 12px 20px;
+    color: var(--kcc-white);
+  }
+
+  .mobile-nav-active .navmenu a:hover,
+  .mobile-nav-active .navmenu a.active {
+    color: var(--kcc-gold);
+  }
+
+  .mobile-nav-active .navmenu a.active::after {
+    display: none;
+  }
+
+  .mobile-nav-active .navmenu .dropdown ul {
+    display: none;
+    position: static;
+    min-width: auto;
+    padding-left: 20px;
+    background: var(--kcc-green);
+    border: 0;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-nav-active .navmenu .dropdown > .dropdown-active {
+    display: block !important;
+  }
+
+  .header .btn-getstarted {
+    display: none;
+  }
+}
+
+/* =========================
+   23. TABLET RESPONSIVE
+========================= */
+@media (max-width: 991px) {
+  .section {
+    padding: 75px 0;
+  }
+
+  .hero {
+    min-height: 590px;
+  }
+
+  .hero h1,
+  .hero h2 {
+    font-size: 43px;
+  }
+
+  .about h3 {
+    font-size: 29px;
+  }
+
+  .why-us .icon-box {
+    min-height: 210px;
+  }
+
+  .section-title p {
+    font-size: 31px;
+  }
+}
+
+/* =========================
+   24. MOBILE RESPONSIVE
+========================= */
+@media (max-width: 767px) {
+  .header .logo img {
+    max-height: 43px;
+  }
+
+  .header .logo h1,
+  .header .logo .sitename {
+    font-size: 19px;
+  }
+
+  .hero {
+    min-height: 530px;
+  }
+
+  .hero h1,
+  .hero h2 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .about {
+    padding: 70px 0;
+  }
+
+  .about img {
+    max-height: 320px;
+  }
+
+  .stats-item span {
+    font-size: 36px;
+  }
+
+  .section-title p {
+    font-size: 27px;
+  }
+
+  .course-item > img {
+    height: 220px;
+  }
+
+  .trainers-index .member img,
+  .trainers .member img {
+    height: 230px;
+  }
+
+  #history h2,
+  #history h3 {
+    font-size: 28px;
+  }
+
+  #history .history-image {
+    height: 280px;
+  }
+
+  .footer .footer-top {
+    padding-top: 50px;
+  }
+}
+
+/* =========================
+   25. SMALL MOBILE RESPONSIVE
+========================= */
+@media (max-width: 575px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .header {
+    padding: 9px 0;
+  }
+
+  .header .logo img {
+    max-height: 38px;
+  }
+
+  .header .logo h1,
+  .header .logo .sitename {
+    font-size: 17px;
+    letter-spacing: 0;
+  }
+
+  .hero {
+    min-height: 490px;
+  }
+
+  .hero h1,
+  .hero h2 {
+    font-size: 29px;
+    letter-spacing: 0;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero p:last-of-type {
+    font-size: 13px;
+  }
+
+  .hero .btn-get-started,
+  .hero .btn-getstarted {
+    padding: 11px 21px;
+    font-size: 11px;
+  }
+
+  .about h3 {
+    font-size: 25px;
+  }
+
+  .section-title p {
+    font-size: 24px;
+  }
+
+  .why-box {
+    padding: 29px 22px;
+  }
+
+  .why-box h3 {
+    font-size: 25px;
+  }
+
+  #campus-life .row > div {
+    padding: 23px;
+  }
+
+  .footer .footer-top {
+    padding-top: 43px;
+  }
+}
+
+/* =====================================================
+   KCC EVENTS SECTION 
+===================================================== */
+
+/* Main Events Section */
+#events,
+.events,
+section.events {
+    background: #123F32 !important;
+    color: #DCE8DF !important;
+    padding: 80px 0;
+}
+
+/* Events Section Heading */
+#events h1,
+#events h2,
+#events h3,
+.events h1,
+.events h2,
+.events h3 {
+    color: #F5F8F5 !important;
+}
+
+/* Section Title */
+#events .section-title h2,
+.events .section-title h2 {
+    color: #D6B875 !important;
+}
+
+#events .section-title p,
+.events .section-title p {
+    color: #F5F8F5 !important;
+}
+
+/* Event Cards */
+#events .card,
+.events .card,
+#events .event-item,
+.events .event-item {
+    background: #205B48 !important;
+    border: 1px solid rgba(214, 184, 117, 0.35) !important;
+    border-radius: 10px !important;
+    overflow: hidden;
+    height: 100%;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.20);
+    transition: all 0.3s ease;
+}
+
+/* Event Card Hover */
+#events .card:hover,
+.events .card:hover,
+#events .event-item:hover,
+.events .event-item:hover {
+    transform: translateY(-6px);
+    border-color: #D6B875 !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.30);
+}
+
+/* Event Card Body */
+#events .card-body,
+.events .card-body {
+    background: #205B48 !important;
+    color: #DCE8DF !important;
+    padding: 25px !important;
+}
+
+/* Event Titles */
+#events .card-title,
+#events .card-title a,
+#events h4,
+#events h5,
+.events .card-title,
+.events .card-title a,
+.events h4,
+.events h5 {
+    color: #F5F8F5 !important;
+    font-weight: 700;
+}
+
+/* Event Title Hover */
+#events .card-title a:hover,
+.events .card-title a:hover {
+    color: #D6B875 !important;
+}
+
+/* Event Description */
+#events p,
+#events .card-text,
+#events .description,
+.events p,
+.events .card-text,
+.events .description {
+    color: #DCE8DF !important;
+    line-height: 1.8;
+}
+
+/* Event Date and Details */
+#events .fst-italic,
+#events .event-date,
+#events .event-time,
+#events .event-location,
+.events .fst-italic,
+.events .event-date,
+.events .event-time,
+.events .event-location {
+    color: #D6B875 !important;
+}
+
+/* Event Icons */
+#events i,
+#events .bi,
+.events i,
+.events .bi {
+    color: #D6B875 !important;
+}
+
+/* Event Images */
+#events img,
+.events img {
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Event Links */
+#events a,
+.events a {
+    transition: 0.3s ease;
+}
+
+#events a:hover,
+.events a:hover {
+    color: #D6B875 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+    #events,
+    .events {
+        padding: 60px 0;
+    }
+
+    #events .card-body,
+    .events .card-body {
+        padding: 20px !important;
+    }
+}
+
